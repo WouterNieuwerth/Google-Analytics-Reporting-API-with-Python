@@ -33,8 +33,8 @@ The .json keyfile can be retrieved from console.cloud.google.com under Service A
 from Analytics_Reporting_API import response_to_df, makeRequestWithExponentialBackoff, initialize_analyticsreporting
 import pandas as pd
 
-# initialize empty array to store responses
-response_array = []
+# initialize empty list to store responses
+response_list = []
 
 def make_GA_API_call():
 
@@ -47,11 +47,11 @@ def make_GA_API_call():
             # https://developers.google.com/analytics/devguides/reporting/core/v4/basics
         }
 
-    response = makeRequestWithExponentialBackoff(analytics, request)
-    response = response_to_df(response)
-    response_array.append(response)
+        response = makeRequestWithExponentialBackoff(analytics, request)
+        response = response_to_df(response)
+        response_array.append(response)
 
-    df = pd.concat(response_array, ignore_index=True)
+    df = pd.concat(response_list, ignore_index=True)
     return df
 
 df = make_GA_API_call()
