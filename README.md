@@ -7,6 +7,7 @@ Most examples online only provide the code for a single call that return a raw r
 This code expects a .json keyfile in the same directory and a secrets.py file. You can make your own secrets.py file following the example below and is purely meant as a way to keep my private login credentials seperate from files that will be shared.
 
 ## Example secrets.py file
+'''
 obj = {
     'SCOPES' : ['https://www.googleapis.com/auth/analytics.readonly',
                 'https://www.googleapis.com/auth/analytics.edit',
@@ -20,6 +21,7 @@ obj = {
 
 def secrets ():
     return obj
+'''
 
 ## JSON keyfile
 The .json keyfile can be retrieved from console.cloud.google.com under Service Accounts. There are plenty tutorials to be found on how to do this. :)
