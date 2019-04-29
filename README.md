@@ -25,3 +25,36 @@ def secrets ():
 
 ## JSON keyfile
 The .json keyfile can be retrieved from console.cloud.google.com under Service Accounts. There are plenty tutorials to be found on how to do this. :)
+
+## Example usage
+
+```
+# import modules
+from Analytics_Reporting_API import response_to_df, makeRequestWithExponentialBackoff, initialize_analyticsreporting
+import pandas as pd
+
+# initialize empty array to store responses
+response_array = []
+
+def make_GA_API_call():
+
+    analytics = initialize_analyticsreporting()
+
+    for x in y:
+        # make a lot of requests...
+        request = {
+            # see Google documentation about valid requests
+            # https://developers.google.com/analytics/devguides/reporting/core/v4/basics
+        }
+
+    response = makeRequestWithExponentialBackoff(analytics, request)
+    response = response_to_df(response)
+    response_array.append(response)
+
+    df = pd.concat(response_array, ignore_index=True)
+    return df
+
+df = make_GA_API_call()
+  
+print(df.head())
+```
