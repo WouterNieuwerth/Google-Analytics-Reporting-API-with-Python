@@ -96,7 +96,7 @@ def initialize_analyticsreporting():
     analytics an authorized analyticsreporting service object.
   """
 
-  credentials = ServiceAccountCredentials.from_json_keyfile_name('gaCredentials.json', scopes=SCOPES)
+  credentials = ServiceAccountCredentials.from_json_keyfile_name(KEY_FILE_LOCATION, scopes=SCOPES)
 
   http = credentials.authorize(httplib2.Http())
 
